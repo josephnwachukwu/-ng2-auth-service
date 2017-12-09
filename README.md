@@ -61,12 +61,49 @@ This application strcuture here as a suggestion and can be changed to fit your n
 ### Declaring your states
 When defining your states add the "requiredAuth" data element.
 
+```
+export const enrollState = {
+	parent: 'app',
+	name: 'sampleRoute',
+	url: '/sample',
+	component: SampleAppComponent,
+	params: {
+		brokerId: '',
+	},
+	data: { 
+		meta: {
+			title: 'Sample Route'
+		},
+		requiresAuth: true,
+	},
+}
+```
+### Implement Using UIRouterModule.forRoot()
 
 ```
 UIRouterModule.forRoot({
     states: App_states,
     useHash: true,
-    otherwise: {state: 'demographics'},
+    otherwise: {state: 'home'},
     config: routerConfigFn,
   })
  ```
+ 
+ ### Router Configuration
+ The Router Configuration file is configured like this
+ 
+ ```
+ import { UIRouter, Category } from "@uirouter/angular";
+
+// Hooks
+import { requiresAuthHook } from './Auth/auth.hook';
+
+export function routerConfigFn(router: UIRouter) {
+  const transitionService = router.transitionService;
+  requiresAuthHook(transitionService);
+
+  router.trace.enable(Category.TRANSITION);
+}
+ ```
+ 
+ It calls the transition and declares the hook on service.
