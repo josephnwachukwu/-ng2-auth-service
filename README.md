@@ -1,4 +1,4 @@
-# -ng2-auth-service
+# Authentication Module
 An Authentication Library for angular Using UI-Router
 
 
