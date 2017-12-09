@@ -15,20 +15,26 @@ This application strcuture here as a suggestion and can be changed to fit your n
 
 ```
 .
-├── auth.module.ts                  # Main Module
-├── auth.hook.ts                    # Transition Hook
-├── auth.states.ts                  # States with Meta Data
-├── Login                           # Login Component
-│   ├── login.component.ts          # Build for Production
-│   ├── login.component.css         # Build for Production
-│   ├── login.component.html        # Build for Production
-├── Register                        # Registration Component
-├── ForgotPassword                  # Forgot Password Component
-├── shared                          # Shared components and Services
-│   ├── webpack.build.prod.js       # Build for Production
-│   ├── webpack.js                  # Main Build for development
-│   ├── webpack.serve.dev.js        # Build for dev server
-│   ├── webpack.serve.prod.js       # Build for production
+├── auth.module.ts                      # Main Module
+├── auth.hook.ts                        # Transition Hook
+├── auth.states.ts                      # States with Meta Data
+├── Login                               # Login Component
+│   ├── login.component.ts              # Login Compoment
+│   ├── login.component.css             # Login Component Styles
+│   └── login.component.html            # Login Component HTML
+├── Register                            # Registration Component
+│   ├── register.component.ts           # Registration Compoment
+│   ├── register.component.css          # Registration Component Styles
+│   └── register.component.html         # Registration Component HTML
+├── Forgot-password                     # Forgot Password Component
+│   ├── forgot-password.component.ts    # Registration Compoment
+│   ├── forgot-password.component.css   # Registration Component Styles
+│   └── forgot-password.component.html  # Registration Component HTML
+├── shared                              # Shared components and Services
+│   ├── services                        # Build for Production
+│   ├── models                          # Main Build for development
+│   ├── webpack.serve.dev.js            # Build for dev server
+│   ├── webpack.serve.prod.js           # Build for production
 │   └── mocha-multi-reporters.json  # 
 ├── src                             # Application source code
 │   ├── index.html                  # Main HTML page container for app
@@ -51,4 +57,16 @@ This application strcuture here as a suggestion and can be changed to fit your n
 ```
 
 ## How to Use
+
+### Declaring your states
 When defining your states add the "requiredAuth" data element.
+
+
+```
+UIRouterModule.forRoot({
+    states: App_states,
+    useHash: true,
+    otherwise: {state: 'demographics'},
+    config: routerConfigFn,
+  })
+ ```
