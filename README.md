@@ -4,9 +4,37 @@ An Authentication Library for angular Using UI-Router
 
 An Authentication library for authentication
 
+
 ## How it works
 Using UI-Router Transition Hooks, A "requiredAuth" boolean is checked. If truthful it checks to see if any user is logged in.
 If the user is logged in the route will resolve. If not the transition is rejected and the user is sent to the login page.
+
+## Key Features
+
+#### Core
+* [Angular](http://angular.io/)
+* [Ui-Router](https://ui-router.github.io/)
+* [Angular Material](https://material.angular.io/)
+
+
+#### Packing 
+* [webpack](https://github.com/webpack/webpack)
+* [babel](https://github.com/babel/babel)
+* [eslint](http://eslint.org)
+
+#### Testing
+* [mocha](https://mochajs.org/)
+* [sinon](http://sinonjs.org/)
+* [chai](https://github.com/chaijs/chai)
+* [husky](https://github.com/typicode/husky) 
+
+
+#### CSS
+* [reflex](leejordan.github.io/reflex/docs/)
+* [santize](https://github.com/jonathantneal/sanitize.css/)
+* [postcss](https://github.com/postcss/postcss)
+* [stylelint](https://www.npmjs.com/package/stylelint)
+
 
 
 ### Application Structure
